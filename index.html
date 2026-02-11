@@ -62,6 +62,9 @@
     </style>
 </head>
 <body>
+<audio id="bgMusic" loop>
+  <source src="love.mp3" type="audio/mpeg">
+</audio>
 
 <h1 id="title"></h1>
 
@@ -95,10 +98,13 @@
         noBtn.style.top = y + "px";
     });
 
-    document.getElementById("yes").addEventListener("click", function() {
-        document.getElementById("message").innerHTML = 
-            "YAY!!! 💕 You just made me the happiest person alive!";
-        launchHearts();
+   document.getElementById("yes").addEventListener("click", function() {
+
+    document.getElementById("bgMusic").play();
+
+    document.getElementById("message").innerHTML = 
+        "YAY!!! 💕 You just made me the happiest person alive!";
+    launchHearts();
     });
 
     function launchHearts() {
@@ -119,4 +125,5 @@
 
 </body>
 </html>
+
 
