@@ -87,6 +87,19 @@
 .giftBtn:hover {
     transform: scale(1.1);
 }
+        .giftImage {
+    width: 250px;
+    border-radius: 20px;
+    margin-top: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
 
 
     </style>
@@ -123,9 +136,10 @@
 </div>
 
 <div id="giftOptions" style="display:none; margin-top:30px;">
-    <button onclick="selectGift('Gift 1 🎁: A Cute Teddy 🧸')" class="giftBtn">Gift 1</button>
-    <button onclick="selectGift('Gift 2 🎁: A Romantic Dinner 🍽️')" class="giftBtn">Gift 2</button>
-    <button onclick="selectGift('Gift 3 🎁: A Surprise Date 🌹')" class="giftBtn">Gift 3</button>
+    <button onclick="selectGift('gift1')" class="giftBtn">Gift 1 🎁</button>
+<button onclick="selectGift('gift2')" class="giftBtn">Gift 2 🎁</button>
+<button onclick="selectGift('gift3')" class="giftBtn">Gift 3 🎁</button>
+
 </div>
 
 <div id="giftMessage" style="margin-top:20px; font-size:22px; color:white;"></div>
@@ -186,9 +200,37 @@
     document.getElementById("giftOptions").style.display = "block";
 }
 
-function selectGift(message) {
-    document.getElementById("giftMessage").innerHTML = 
-        "Great choice! 💕 " + message + "<br><br>I can't wait to make this special for you!";
+function selectGift(giftType) {
+
+    const giftMessage = document.getElementById("giftMessage");
+
+    if (giftType === "gift1") {
+        giftMessage.innerHTML = `
+            <h2>You chose a Cute Teddy 🧸</h2>
+            <img src="teddy.jpg" class="giftImage">
+            <p>This teddy will remind you of me every time you hug it 💕</p>
+        `;
+    }
+
+    if (giftType === "gift2") {
+        giftMessage.innerHTML = `
+            <h2>You chose a Romantic Dinner 🍽️</h2>
+            <img src="candle.jpg" class="giftImage">
+            <p>Candle lights, good food, and just us ✨</p>
+        `;
+    }
+
+    if (giftType === "gift3") {
+        giftMessage.innerHTML = `
+            <h2>You chose a Surprise Date 🌹</h2>
+            <img src="date.jpg" class="giftImage">
+            <p>Get ready for a beautiful day together 💖</p>
+        `;
+    }
+
+    giftMessage.style.display = "block";
+}
+
 }
 
     
@@ -196,6 +238,7 @@ function selectGift(message) {
 
 </body>
 </html>
+
 
 
 
