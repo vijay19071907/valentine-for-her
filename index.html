@@ -59,6 +59,20 @@
             0% { transform: translateY(100vh); }
             100% { transform: translateY(-10vh); }
         }
+        .photo {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+.photo:hover {
+    transform: scale(1.1);
+}
+
     </style>
 </head>
 <body>
@@ -74,6 +88,17 @@
 </div>
 
 <div id="message"></div>
+<div id="gallery" style="display:none; margin-top:40px;">
+    <h2 style="color:white;">Our Cute Memories 💕</h2>
+    
+    <img src="pic1.jpg" class="photo">
+    <img src="pic2.jpg" class="photo">
+</div>
+<div id="loveNote" style="display:none; margin-top:40px; color:white; font-size:22px;">
+    From the first moment I met you, something felt different. 💕<br><br>
+    You make my days brighter and my smile wider.<br><br>
+    I’m really lucky to have you in my life.
+</div>
 
 <script>
     const text = "Hey Chitti Will you be my Valentine? 💖";
@@ -103,10 +128,15 @@
     document.getElementById("bgMusic").play();
 
     document.getElementById("message").innerHTML = 
-        "YAY!!! 💕 You just made me the happiest person alive!";
-    launchHearts();
-    });
+        "You just made me the happiest person alive 💖";
 
+    document.getElementById("gallery").style.display = "block";
+    document.getElementById("loveNote").style.display = "block";
+
+
+    launchHearts();
+});
+    
     function launchHearts() {
         setInterval(() => {
             const heart = document.createElement("div");
@@ -125,5 +155,6 @@
 
 </body>
 </html>
+
 
 
