@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Be My Valentine 💖</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            margin-top: 120px;
+            font-size: 40px;
+            color: white;
+        }
+
+        #buttons {
+            margin-top: 40px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #yes {
+            background-color: #ff4d6d;
+            color: white;
+            margin-right: 20px;
+        }
+
+        #no {
+            background-color: white;
+            color: #ff4d6d;
+            position: absolute;
+        }
+
+        #message {
+            margin-top: 40px;
+            font-size: 28px;
+            color: white;
+        }
+
+        .heart {
+            position: absolute;
+            color: white;
+            animation: float 5s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh); }
+            100% { transform: translateY(-10vh); }
+        }
+    </style>
+</head>
+<body>
+
+<h1 id="title"></h1>
+
+<div id="buttons">
+    <button id="yes">Yes 💘</button>
+    <button id="no">No 💔</button>
+</div>
+
+<div id="message"></div>
+
+<script>
+    const text = "Will you be my Valentine? 💖";
+    let i = 0;
+
+    function typeWriter() {
+        if (i < text.length) {
+            document.getElementById("title").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 80);
+        }
+    }
+
+    typeWriter();
+
+    const noBtn = document.getElementById("no");
+
+    noBtn.addEventListener("mouseover", function() {
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
+
+    document.getElementById("yes").addEventListener("click", function() {
+        document.getElementById("message").innerHTML = 
+            "YAY!!! 💕 You just made me the happiest person alive!";
+        launchHearts();
+    });
+
+    function launchHearts() {
+        setInterval(() => {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "💖";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = Math.random() * 20 + 20 + "px";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }, 300);
+    }
+</script>
+
+</body>
+</html>
