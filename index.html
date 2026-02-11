@@ -72,6 +72,22 @@
 .photo:hover {
     transform: scale(1.1);
 }
+        .giftBtn {
+    padding: 12px 20px;
+    margin: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background: white;
+    color: #ff4d6d;
+    transition: 0.3s;
+}
+
+.giftBtn:hover {
+    transform: scale(1.1);
+}
+
 
     </style>
 </head>
@@ -99,6 +115,20 @@
     You make my days brighter and my smile wider.<br><br>
     I’m really lucky to have you in my life.
 </div>
+<div id="giftSection" style="display:none; margin-top:40px;">
+    <button onclick="showGifts()" 
+        style="padding:15px 25px; font-size:18px; border:none; border-radius:20px; background:#ff4d6d; color:white; cursor:pointer;">
+        Pick Your Gift 🎁
+    </button>
+</div>
+
+<div id="giftOptions" style="display:none; margin-top:30px;">
+    <button onclick="selectGift('Gift 1 🎁: A Cute Teddy 🧸')" class="giftBtn">Gift 1</button>
+    <button onclick="selectGift('Gift 2 🎁: A Romantic Dinner 🍽️')" class="giftBtn">Gift 2</button>
+    <button onclick="selectGift('Gift 3 🎁: A Surprise Date 🌹')" class="giftBtn">Gift 3</button>
+</div>
+
+<div id="giftMessage" style="margin-top:20px; font-size:22px; color:white;"></div>
 
 <script>
     const text = "Hey Chitti Will you be my Valentine? 💖";
@@ -132,6 +162,8 @@
 
     document.getElementById("gallery").style.display = "block";
     document.getElementById("loveNote").style.display = "block";
+       document.getElementById("giftSection").style.display = "block";
+
 
 
     launchHearts();
@@ -150,11 +182,21 @@
                 heart.remove();
             }, 5000);
         }, 300);
-    }
+    }function showGifts() {
+    document.getElementById("giftOptions").style.display = "block";
+}
+
+function selectGift(message) {
+    document.getElementById("giftMessage").innerHTML = 
+        "Great choice! 💕 " + message + "<br><br>I can't wait to make this special for you!";
+}
+
+    
 </script>
 
 </body>
 </html>
+
 
 
 
