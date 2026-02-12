@@ -85,6 +85,7 @@
 const text = "Hey Chitti… Will you be my Valentine? 💖";
 let i=0;
 
+// Typewriter
 function typeWriter(){
     if(i<text.length){
         document.getElementById("title").innerHTML+=text.charAt(i);
@@ -94,25 +95,24 @@ function typeWriter(){
 }
 typeWriter();
 
-// No button dodge
+// No button moves
 const noBtn = document.getElementById("no");
-noBtn.addEventListener("mouseover", function(){
-    const x = Math.random()*window.innerWidth;
-    const y = Math.random()*window.innerHeight;
-    noBtn.style.left = x+"px";
-    noBtn.style.top = y+"px";
+noBtn.addEventListener("mouseover",function(){
+    const x=Math.random()*window.innerWidth;
+    const y=Math.random()*window.innerHeight;
+    noBtn.style.left=x+"px";
+    noBtn.style.top=y+"px";
 });
 
-// Yes button click
-document.getElementById("yes").addEventListener("click", function(){
-    const music = document.getElementById("bgMusic");
-    music.volume = 0.5;
-    music.play(); // 🎵 start music
+// Yes button
+document.getElementById("yes").addEventListener("click",function(){
+    document.getElementById("bgMusic").volume = 0.5;
+    document.getElementById("bgMusic").play();
 
-    document.getElementById("message").innerHTML = "You just made me the happiest person alive 💖";
-    document.getElementById("gallery").style.display = "block";
-    document.getElementById("loveNote").style.display = "block";
-    document.getElementById("giftSection").style.display = "block";
+    document.getElementById("message").innerHTML="You just made me the happiest person alive 💖";
+    document.getElementById("gallery").style.display="block";
+    document.getElementById("loveNote").style.display="block";
+    document.getElementById("giftSection").style.display="block";
 
     launchHearts();
 });
@@ -130,7 +130,7 @@ function launchHearts(){
     },300);
 }
 
-// Gift functions
+// Gifts
 function showGifts(){ document.getElementById("giftOptions").style.display="block"; }
 
 function selectGift(giftType){
@@ -144,35 +144,32 @@ function selectGift(giftType){
     }
     giftMessage.style.display="block";
 
-    launchFireworks();           // 🎆 fireworks
-    setTimeout(()=>document.getElementById("finalMessage").style.display="flex",5000); // 💖 final message
+    launchFireworks();  // fireworks after gift
+    setTimeout(()=>document.getElementById("finalMessage").style.display="flex",3000); // show final message
 }
 
-// Fireworks + confetti
+// Fireworks/confetti
 function launchFireworks(){
-    const colors = ["#ff4d6d","#ffb3c1","#ffe066","#ffffff"];
-    let interval = setInterval(()=>{
+    const colors=["#ff4d6d","#ffb3c1","#ffe066","#ffffff"];
+    let interval=setInterval(()=>{
         for(let i=0;i<3;i++){
-            const confetti = document.createElement("div");
-            confetti.classList.add("confetti");
-            const color = colors[Math.floor(Math.random()*colors.length)];
-            confetti.style.color=color;
-            confetti.innerHTML=["💖","✨","🎇"][Math.floor(Math.random()*3)];
-            confetti.style.left=Math.random()*100+"vw";
-            confetti.style.top=Math.random()*100+"vh";
-            confetti.style.fontSize=Math.random()*40+20+"px";
-            confetti.style.opacity=0.9;
-            document.body.appendChild(confetti);
-            confetti.animate([
+            const c=document.createElement("div");
+            c.classList.add("confetti");
+            c.style.color=colors[Math.floor(Math.random()*colors.length)];
+            c.innerHTML=["💖","✨","🎇"][Math.floor(Math.random()*3)];
+            c.style.left=Math.random()*100+"vw";
+            c.style.top=Math.random()*100+"vh";
+            c.style.fontSize=Math.random()*40+20+"px";
+            document.body.appendChild(c);
+            c.animate([
                 {transform:"translateY(0) rotate(0deg)",opacity:1},
                 {transform:`translateY(-200px) rotate(${Math.random()*360}deg)`,opacity:0}
             ],{duration:3000,easing:"ease-out"});
-            setTimeout(()=>confetti.remove(),3000);
+            setTimeout(()=>c.remove(),3000);
         }
     },300);
-    setTimeout(()=>clearInterval(interval),10000);
+    setTimeout(()=>clearInterval(interval),5000);
 }
 </script>
-
 </body>
 </html>
