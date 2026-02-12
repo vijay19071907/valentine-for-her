@@ -1,122 +1,100 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Be My Valentine 💖</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            overflow-x: hidden;
-        }
+<title>Be My Valentine 💖</title>
 
-        h1 {
-            margin-top: 120px;
-            font-size: 40px;
-            color: white;
-        }
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+}
 
-        #buttons {
-            margin-top: 40px;
-        }
+h1 {
+    margin-top: 120px;
+    font-size: 40px;
+    color: white;
+}
 
-        button {
-            padding: 15px 30px;
-            font-size: 20px;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+#buttons { margin-top: 40px; }
 
-        #yes {
-            background-color: #ff4d6d;
-            color: white;
-            margin-right: 20px;
-        }
+button {
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        #no {
-            background-color: white;
-            color: #ff4d6d;
-            position: absolute;
-        }
+#yes {
+    background-color: #ff4d6d;
+    color: white;
+    margin-right: 20px;
+}
 
-        #message {
-            margin-top: 40px;
-            font-size: 28px;
-            color: white;
-        }
+#no {
+    background-color: white;
+    color: #ff4d6d;
+    position: absolute;
+}
 
-        .heart, .confetti {
-            position: absolute;
-            color: white;
-            animation: float 5s linear infinite;
-            pointer-events: none;
-        }
+#message {
+    margin-top: 40px;
+    font-size: 28px;
+    color: white;
+}
 
-        @keyframes float {
-            0% { transform: translateY(100vh); }
-            100% { transform: translateY(-10vh); }
-        }
+.heart {
+    position: absolute;
+    color: white;
+    animation: float 5s linear infinite;
+}
 
-        .photo {
-            width: 200px;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 20px;
-            margin: 10px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            transition: transform 0.3s;
-        }
-        .photo:hover { transform: scale(1.1); }
+@keyframes float {
+    0% { transform: translateY(100vh); }
+    100% { transform: translateY(-10vh); }
+}
 
-        .giftBtn {
-            padding: 12px 20px;
-            margin: 10px;
-            font-size: 18px;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            background: white;
-            color: #ff4d6d;
-            transition: 0.3s;
-        }
-        .giftBtn:hover { transform: scale(1.1); }
+.photo {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
 
-        .giftImage {
-            width: 250px;
-            border-radius: 20px;
-            margin-top: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            animation: fadeIn 1s ease-in-out;
-        }
+.photo:hover { transform: scale(1.1); }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
+.giftBtn {
+    padding: 12px 20px;
+    margin: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background: white;
+    color: #ff4d6d;
+}
 
-        #finalMessage {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: linear-gradient(135deg,#ff9a9e,#fad0c4);
-            color: white;
-            font-size: 50px;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            z-index: 9999;
-        }
-    </style>
+.giftImage {
+    width: 250px;
+    border-radius: 20px;
+    margin-top: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+</style>
 </head>
+
 <body>
 
 <audio id="bgMusic" loop>
-  <source src="love.mp3" type="audio/mpeg">
+    <source src="love.mp3" type="audio/mpeg">
 </audio>
 
 <h1 id="title"></h1>
@@ -135,16 +113,13 @@
 </div>
 
 <div id="loveNote" style="display:none; margin-top:40px; color:white; font-size:22px;">
-    From the first moment I met you, something felt different. 💕<br><br>
+    From the first moment I met you, something felt different 💕<br><br>
     You make my days brighter and my smile wider.<br><br>
     I’m really lucky to have you in my life.
 </div>
 
 <div id="giftSection" style="display:none; margin-top:40px;">
-    <button onclick="showGifts()" 
-        style="padding:15px 25px; font-size:18px; border:none; border-radius:20px; background:#ff4d6d; color:white; cursor:pointer;">
-        Pick Your Gift 🎁
-    </button>
+    <button onclick="showGifts()">Pick Your Gift 🎁</button>
 </div>
 
 <div id="giftOptions" style="display:none; margin-top:30px;">
@@ -155,12 +130,9 @@
 
 <div id="giftMessage" style="margin-top:20px; font-size:22px; color:white;"></div>
 
-<div id="finalMessage">
-    I LOVE YOU CHITTI 💖
-</div>
-
 <script>
-const text = "Hey Chitti… Will you be my Valentine? 💖";
+
+const text = "Hey Chitti Will you be my Valentine? 💖";
 let i = 0;
 
 function typeWriter() {
@@ -172,110 +144,5 @@ function typeWriter() {
 }
 typeWriter();
 
-const noBtn = document.getElementById("no");
-noBtn.addEventListener("mouseover", function() {
-    const x = Math.random() * window.innerWidth;
-    const y = Math.random() * window.innerHeight;
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-});
-
-document.getElementById("yes").addEventListener("click", function() {
-    document.getElementById("bgMusic").play();
-    document.getElementById("message").innerHTML = "You just made me the happiest person alive 💖";
-    document.getElementById("gallery").style.display = "block";
-    document.getElementById("loveNote").style.display = "block";
-    document.getElementById("giftSection").style.display = "block";
-    smoothScrollTo(document.getElementById("gallery"));
-    launchHearts();
-});
-
-function launchHearts() {
-    setInterval(() => {
-        const heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.innerHTML = "💖";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.fontSize = Math.random() * 20 + 20 + "px";
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 5000);
-    }, 300);
-}
-
-function showGifts() {
-    document.getElementById("giftOptions").style.display = "block";
-    smoothScrollTo(document.getElementById("giftOptions"));
-}
-
-function selectGift(giftType) {
-    const giftMessage = document.getElementById("giftMessage");
-    if (giftType === "gift1") {
-        giftMessage.innerHTML = `
-            <h2>You chose a Cute Teddy 🧸</h2>
-            <img src="teddy.jpg" class="giftImage">
-            <p>This teddy will remind you of me every time you hug it 💕</p>
-        `;
-    } else if (giftType === "gift2") {
-        giftMessage.innerHTML = `
-            <h2>You chose a Romantic Dinner 🍽️</h2>
-            <img src="dinner.jpg" class="giftImage">
-            <p>Candle lights, good food, and just us ✨</p>
-        `;
-    } else if (giftType === "gift3") {
-        giftMessage.innerHTML = `
-            <h2>You chose a Surprise Date 🌹</h2>
-            <img src="date.jpg" class="giftImage">
-            <p>Get ready for a beautiful day together 💖</p>
-        `;
-    }
-    giftMessage.style.display = "block";
-    launchFireworks();
-    setTimeout(showFinalMessage, 5000);
-}
-
-function launchFireworks() {
-    const colors = ["#ff4d6d", "#ffb3c1", "#ffe066", "#ffffff"];
-    let fireworksInterval = setInterval(() => {
-        // Create 3 fireworks at random positions
-        for (let i = 0; i < 3; i++) {
-            const confetti = document.createElement("div");
-            confetti.classList.add("confetti");
-            const color = colors[Math.floor(Math.random() * colors.length)];
-            confetti.style.color = color;
-            confetti.innerHTML = ["💖","✨","🎇"][Math.floor(Math.random()*3)];
-            confetti.style.left = Math.random() * 100 + "vw";
-            confetti.style.top = Math.random() * 100 + "vh";
-            confetti.style.fontSize = Math.random() * 40 + 20 + "px";
-            confetti.style.opacity = 0.9;
-            document.body.appendChild(confetti);
-
-            // Animate floating upwards and rotation
-            confetti.animate([
-                { transform: `translateY(0) rotate(0deg)`, opacity: 1 },
-                { transform: `translateY(-200px) rotate(${Math.random()*360}deg)`, opacity: 0 }
-            ], {
-                duration: 3000,
-                easing: "ease-out"
-            });
-
-            setTimeout(() => confetti.remove(), 3000);
-        }
-    }, 300);
-
-    // Stop fireworks after 10 seconds to avoid too much clutter
-    setTimeout(() => clearInterval(fireworksInterval), 10000);
-}
-
-function showFinalMessage() {
-    document.getElementById("finalMessage").style.display = "flex";
-    launchHearts();
-}
-
-function smoothScrollTo(element) {
-    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
-</script>
-
-</body>
-</html>
-
+// No button moves
+const noBtn = document.getEl
