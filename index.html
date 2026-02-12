@@ -234,16 +234,36 @@ function selectGift(giftType) {
 }
 
 function launchFireworks() {
-    let fireworks = setInterval(() => {
-        const confetti = document.createElement("div");
-        confetti.classList.add("confetti");
-        confetti.innerHTML = "✨💖🎇";
-        confetti.style.left = Math.random() * 100 + "vw";
-        confetti.style.top = Math.random() * 100 + "vh";
-        confetti.style.fontSize = Math.random() * 30 + 20 + "px";
-        document.body.appendChild(confetti);
-        setTimeout(() => confetti.remove(), 3000);
+    const colors = ["#ff4d6d", "#ffb3c1", "#ffe066", "#ffffff"];
+    let fireworksInterval = setInterval(() => {
+        // Create 3 fireworks at random positions
+        for (let i = 0; i < 3; i++) {
+            const confetti = document.createElement("div");
+            confetti.classList.add("confetti");
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.color = color;
+            confetti.innerHTML = ["💖","✨","🎇"][Math.floor(Math.random()*3)];
+            confetti.style.left = Math.random() * 100 + "vw";
+            confetti.style.top = Math.random() * 100 + "vh";
+            confetti.style.fontSize = Math.random() * 40 + 20 + "px";
+            confetti.style.opacity = 0.9;
+            document.body.appendChild(confetti);
+
+            // Animate floating upwards and rotation
+            confetti.animate([
+                { transform: `translateY(0) rotate(0deg)`, opacity: 1 },
+                { transform: `translateY(-200px) rotate(${Math.random()*360}deg)`, opacity: 0 }
+            ], {
+                duration: 3000,
+                easing: "ease-out"
+            });
+
+            setTimeout(() => confetti.remove(), 3000);
+        }
     }, 300);
+
+    // Stop fireworks after 10 seconds to avoid too much clutter
+    setTimeout(() => clearInterval(fireworksInterval), 10000);
 }
 
 function showFinalMessage() {
@@ -258,3 +278,4 @@ function smoothScrollTo(element) {
 
 </body>
 </html>
+
