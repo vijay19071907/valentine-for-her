@@ -59,70 +59,52 @@
             0% { transform: translateY(100vh); }
             100% { transform: translateY(-10vh); }
         }
-
         .photo {
-            width: 200px;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 20px;
-            margin: 10px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            transition: transform 0.3s;
-        }
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
 
-        .photo:hover {
-            transform: scale(1.2) rotate(5deg);
-            filter: drop-shadow(0 0 15px #fff);
-        }
-
+.photo:hover {
+    transform: scale(1.1);
+}
         .giftBtn {
-            padding: 12px 20px;
-            margin: 10px;
-            font-size: 18px;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            background: white;
-            color: #ff4d6d;
-            transition: 0.3s;
-        }
+    padding: 12px 20px;
+    margin: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background: white;
+    color: #ff4d6d;
+    transition: 0.3s;
+}
 
-        .giftBtn:hover {
-            transform: scale(1.1);
-        }
-
+.giftBtn:hover {
+    transform: scale(1.1);
+}
         .giftImage {
-            width: 250px;
-            border-radius: 20px;
-            margin-top: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            animation: fadeIn 1s ease-in-out;
-        }
+    width: 250px;
+    border-radius: 20px;
+    margin-top: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    animation: fadeIn 1s ease-in-out;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
 
-        #teddyImg:hover {
-            transform: scale(1.2) rotate(-5deg);
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
 
-        #photoPage {
-            display: none;
-            animation: fadeIn 1s ease-in-out;
-        }
 
-        #teddyContainer {
-            display: none;
-            margin-top: 40px;
-        }
     </style>
 </head>
 <body>
-
 <audio id="bgMusic" loop>
   <source src="love.mp3" type="audio/mpeg">
 </audio>
@@ -135,19 +117,17 @@
 </div>
 
 <div id="message"></div>
-
 <div id="gallery" style="display:none; margin-top:40px;">
     <h2 style="color:white;">Our Cute Memories 💕</h2>
+    
     <img src="pic1.jpeg" class="photo">
     <img src="pic2.jpeg" class="photo">
 </div>
-
 <div id="loveNote" style="display:none; margin-top:40px; color:white; font-size:22px;">
     From the first moment I met you, something felt different. 💕<br><br>
     You make my days brighter and my smile wider.<br><br>
     I’m really lucky to have you in my life.
 </div>
-
 <div id="giftSection" style="display:none; margin-top:40px;">
     <button onclick="showGifts()" 
         style="padding:15px 25px; font-size:18px; border:none; border-radius:20px; background:#ff4d6d; color:white; cursor:pointer;">
@@ -157,22 +137,12 @@
 
 <div id="giftOptions" style="display:none; margin-top:30px;">
     <button onclick="selectGift('gift1')" class="giftBtn">Gift 1 🎁</button>
-    <button onclick="selectGift('gift2')" class="giftBtn">Gift 2 🎁</button>
-    <button onclick="selectGift('gift3')" class="giftBtn">Gift 3 🎁</button>
+<button onclick="selectGift('gift2')" class="giftBtn">Gift 2 🎁</button>
+<button onclick="selectGift('gift3')" class="giftBtn">Gift 3 🎁</button>
+
 </div>
 
 <div id="giftMessage" style="margin-top:20px; font-size:22px; color:white;"></div>
-
-<!-- Teddy Section -->
-<div id="teddyContainer">
-    <img src="teddy.jpg" id="teddyImg" style="width:200px;">
-</div>
-
-<!-- Photo Surprise Page -->
-<div id="photoPage">
-    <h2 style="color:white;">Surprise! 💕</h2>
-    <img src="herphoto.jpg" style="width:250px; border-radius:20px; box-shadow:0 10px 25px rgba(0,0,0,0.3);">
-</div>
 
 <script>
     const text = "Hey Chitti Will you be my Valentine? 💖";
@@ -189,6 +159,7 @@
     typeWriter();
 
     const noBtn = document.getElementById("no");
+
     noBtn.addEventListener("mouseover", function() {
         const x = Math.random() * window.innerWidth;
         const y = Math.random() * window.innerHeight;
@@ -196,16 +167,22 @@
         noBtn.style.top = y + "px";
     });
 
-    document.getElementById("yes").addEventListener("click", function() {
-        document.getElementById("bgMusic").play();
-        document.getElementById("message").innerHTML = 
-            "You just made me the happiest person alive 💖";
-        document.getElementById("gallery").style.display = "block";
-        document.getElementById("loveNote").style.display = "block";
-        document.getElementById("giftSection").style.display = "block";
-        launchHearts();
-    });
+   document.getElementById("yes").addEventListener("click", function() {
 
+    document.getElementById("bgMusic").play();
+
+    document.getElementById("message").innerHTML = 
+        "You just made me the happiest person alive 💖";
+
+    document.getElementById("gallery").style.display = "block";
+    document.getElementById("loveNote").style.display = "block";
+       document.getElementById("giftSection").style.display = "block";
+
+
+
+    launchHearts();
+});
+    
     function launchHearts() {
         setInterval(() => {
             const heart = document.createElement("div");
@@ -214,59 +191,56 @@
             heart.style.left = Math.random() * 100 + "vw";
             heart.style.fontSize = Math.random() * 20 + 20 + "px";
             document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 5000);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
         }, 300);
+    }function showGifts() {
+    document.getElementById("giftOptions").style.display = "block";
+}
+
+function selectGift(giftType) {
+
+    const giftMessage = document.getElementById("giftMessage");
+
+    if (giftType === "gift1") {
+        giftMessage.innerHTML = `
+            <h2>You chose a Cute Teddy 🧸</h2>
+            <img src="teddy.jpg" class="giftImage">
+            <p>This teddy will remind you of me every time you hug it 💕</p>
+        `;
     }
 
-    function showGifts() {
-        document.getElementById("giftOptions").style.display = "block";
+    if (giftType === "gift2") {
+        giftMessage.innerHTML = `
+            <h2>You chose a Romantic Dinner 🍽️</h2>
+            <img src="candle.jpg" class="giftImage">
+            <p>Candle lights, good food, and just us ✨</p>
+        `;
     }
 
-    function selectGift(giftType) {
-        const giftMessage = document.getElementById("giftMessage");
-
-        // Hide previous teddy/photo
-        document.getElementById("teddyContainer").style.display = "none";
-        document.getElementById("photoPage").style.display = "none";
-
-        if (giftType === "gift1") {
-            giftMessage.innerHTML = `
-                <h2>You chose a Cute Teddy 🧸</h2>
-                <p>Click the teddy to see a surprise! 💕</p>
-            `;
-            giftMessage.style.display = "block";
-
-            // Show teddy
-            const teddyContainer = document.getElementById("teddyContainer");
-            teddyContainer.style.display = "block";
-
-            // Click teddy to show her photo
-            document.getElementById("teddyImg").onclick = function() {
-                teddyContainer.style.display = "none";
-                document.getElementById("giftMessage").style.display = "none";
-                document.getElementById("photoPage").style.display = "block";
-            };
-        }
-
-        if (giftType === "gift2") {
-            giftMessage.innerHTML = `
-                <h2>You chose a Romantic Dinner 🍽️</h2>
-                <img src="candle.jpg" class="giftImage">
-                <p>Candle lights, good food, and just us ✨</p>
-            `;
-            giftMessage.style.display = "block";
-        }
-
-        if (giftType === "gift3") {
-            giftMessage.innerHTML = `
-                <h2>You chose a Surprise Date 🌹</h2>
-                <img src="date.jpg" class="giftImage">
-                <p>Get ready for a beautiful day together 💖</p>
-            `;
-            giftMessage.style.display = "block";
-        }
+    if (giftType === "gift3") {
+        giftMessage.innerHTML = `
+            <h2>You chose a Surprise Date 🌹</h2>
+            <img src="date.jpg" class="giftImage">
+            <p>Get ready for a beautiful day together 💖</p>
+        `;
     }
+
+    giftMessage.style.display = "block";
+}
+
+
+    
 </script>
 
 </body>
 </html>
+
+
+
+
+
+
+
