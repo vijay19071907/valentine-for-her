@@ -139,6 +139,7 @@
     <button onclick="selectGift('gift1')" class="giftBtn">Gift 1 🎁</button>
 <button onclick="selectGift('gift2')" class="giftBtn">Gift 2 🎁</button>
 <button onclick="selectGift('gift3')" class="giftBtn">Gift 3 🎁</button>
+<button onclick="selectGift('gift4')" class="giftBtn">Gift 4 🎁</button>
 
 </div>
 
@@ -227,7 +228,11 @@ function selectGift(giftType) {
             <p>Get ready for a beautiful day together 💖</p>
         `;
     }
-
+if (giftType === "gift4") {
+        giftMessage.innerHTML = `
+            <h2>You chose a love 🌹</h2>
+            <img src="ll.jpg" class="giftImage">
+            <p>Get ready for love 💖</p>
     giftMessage.style.display = "block";
 }
 
